@@ -71,13 +71,6 @@ def fabric_main(path):
         print("Download completed.")
         print(f"Fabric server setup completed in {path}.")
 
-        #Crear el server
-        server = subprocess.Popen(["java", "-jar", "fabric-server.jar", "nogui"], cwd=path)
-
-        #Esperar a que se cree el eula
-        while not os.path.exists(os.path.join(path, "eula.txt")):
-            time.sleep(2)
-
         #Aceptar el eula automáticamente, reescribiendo el archivo
         with open(os.path.join(path, "eula.txt"), "w") as f:
             f.write("eula=true\n")

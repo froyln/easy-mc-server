@@ -60,8 +60,9 @@ def mcdr(path, bool):
                             nuevo_contenido = contenido.replace("start_command: echo Hello world from MCDReforged", f"start_command: java -Xmx{minRam}M -Xms{maxRam}M -jar fabric-server.jar nogui")
                             f.write(nuevo_contenido)
                     print("Server configured to use Fabric server and MCDR.")
+                    print("Note: To create the server, run 'start.bat' in the server directory.")
                     input("Press Enter to leave...")
-                    exit("Server configured to use Fabric server and MCDR.")
+                    exit()
                 else:
                     fabric_main(path)
                     print("Modifying start.bat to use Fabric server...")
@@ -77,8 +78,9 @@ def mcdr(path, bool):
                         f.write("start_command: echo Hello world from MCDReforged", f"start_command: java -Xmx{minRam}M -Xms{maxRam}M -jar fabric-server.jar nogui")
                     
                     print("Server configured to use Fabric server.")
+                    print("Note: To create the server, run 'start.bat' in the server directory.")
                     input("Press Enter to leave...")
-                    exit("Server configured to use Fabric server.")
+                    exit()
                     
             case '2':
                 if bool:
@@ -100,8 +102,9 @@ def mcdr(path, bool):
                             nuevo_contenido = contenido.replace("start_command: echo Hello world from MCDReforged", f"start_command: java -Xmx{minRam}M -Xms{maxRam}M -jar server.jar nogui")
                             f.write(nuevo_contenido)
                     print("Server configured to use Vanilla server and MCDR.")
+                    print("Note: To create the server, run 'start.bat' in the server directory.")
                     input("Press Enter to leave...")
-                    exit("Server configured to use Vanilla server and MCDR.")
+                    exit()
 
                 else:
                     vanilla_main(path)
@@ -117,8 +120,9 @@ def mcdr(path, bool):
                     with open(os.path.join(path, "start.bat"), "w") as f:
                         f.write("start_command: echo Hello world from MCDReforged", f"start_command: java -Xmx{minRam}M -Xms{maxRam}M -jar server.jar nogui")
                     print("Server configured to use Vanilla server.")
+                    print("Note: To create the server, run 'start.bat' in the server directory.")
                     input("Press Enter to leave...")
-                    exit("Server configured to use Vanilla server.")
+                    exit()
 
             case '3':
                 return
