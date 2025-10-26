@@ -13,10 +13,20 @@ Tool to create Minecraft Servers more easy
 
 [MCDReforged](https://mcdreforged.com/en) ```not needed for run the program```
 
+### Features
+- [X] [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) ⚠️broken
+- [X] [Vanilla](https://www.minecraft.net/) 
+- [X] [Fabric](https://fabricmc.net/) 
+
+### TODO
+- [ ] [Carpet112](https://github.com/gnembon/carpetmod112) 
+- [ ] [Forge](https://github.com/MinecraftForge/MinecraftForge) 
+- [ ] [PaperMC](https://papermc.io/)
+
 ## Easy Installation
 Download the exe and run
 
-easy-mc-server.exe here
+[easy-mc-server.exe here](https://github.com/froyln/easy-mc-server/releases/download/1.0/easy-mc-server.exe)
 
 ## Manual Installation
 Clone the github project
@@ -25,5 +35,3 @@ git clone https://github.com/froyln/easy-mc-server/
 ```
 Run with python the file run.py
 
-## How works
-When people send any message on #honeypot, bot bans the author message. 
