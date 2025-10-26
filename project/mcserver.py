@@ -102,6 +102,7 @@ def mcdr(path, bool):
                     print("Server configured to use Vanilla server and MCDR.")
                     input("Press Enter to leave...")
                     exit("Server configured to use Vanilla server and MCDR.")
+
                 else:
                     vanilla_main(path)
                     print("Modifying start.bat to use Vanilla server...")
@@ -118,8 +119,10 @@ def mcdr(path, bool):
                     print("Server configured to use Vanilla server.")
                     input("Press Enter to leave...")
                     exit("Server configured to use Vanilla server.")
+
             case '3':
                 return
+            
             case _:
                 print("Invalid choice. Please select 1, 2, or 3.")
                 input("Press Enter to continue...")
