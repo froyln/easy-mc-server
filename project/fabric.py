@@ -1,8 +1,7 @@
 import os
 import requests
-import subprocess
 import urllib.request
-import time
+import subprocess
 
 API_GAME = "https://meta.fabricmc.net/v2/versions/game"
 API_LOADER = "https://meta.fabricmc.net/v2/versions/loader"
@@ -71,6 +70,10 @@ def fabric_main(path):
         print("Download completed.")
         print(f"Fabric server setup completed in {path}.")
 
+        #Iniciar el instalador
+        os.chdir(path)
+        subprocess.run(f'java -jar fabric-server.jar nogui', check=True)
+
         #Aceptar el eula automáticamente, reescribiendo el archivo
         with open(os.path.join(path, "eula.txt"), "w") as f:
             f.write("eula=true\n")
@@ -79,7 +82,7 @@ def fabric_main(path):
         #clear screen
         _ = os.system('cls')
     except:
-        print("Failed to get download URL.")
+        print("Failed to get Fabric URL.")
         input("Press Enter to continue...")
-        return
+        exit(1)
     

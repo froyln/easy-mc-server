@@ -2,6 +2,7 @@ import subprocess
 import os
 from .fabric import fabric_main
 from .vanilla import vanilla_main
+from .forge import forge_main
 
 def createMCDR(path):
     _ = os.system('cls')
@@ -34,9 +35,10 @@ def mcdr(path, bool):
     while True:
         _ = os.system('cls')
         print("Select Minecraft server type.")
-        print("1. fabric")
-        print("2. vanilla")
-        print("3. back to main menu")
+        print("1. Fabric")
+        print("2. Forge")
+        print("3. Vanilla")
+        print("4. Back to main menu")
         choice = input("Enter your choice: ")
 
         match (choice):
@@ -75,18 +77,64 @@ def mcdr(path, bool):
                     if maxRam == "":
                         maxRam = "1024"
                     with open(os.path.join(path, "start.bat"), "w") as f:
-                        f.write("start_command: echo Hello world from MCDReforged", f"start_command: java -Xmx{minRam}M -Xms{maxRam}M -jar fabric-server.jar nogui")
+                        f.write(f"java -Xmx{minRam}M -Xms{maxRam}M -jar fabric-server.jar nogui")
                     
                     print("Server configured to use Fabric server.")
                     print("Note: To create the server, run 'start.bat' in the server directory.")
                     input("Press Enter to leave...")
                     exit()
-                    
+
             case '2':
                 if bool:
                     createMCDR(path)
+                    forge_main(path + "/server")
+                    print("Modifying MCDR config to use Forge server...")
+                    print("Note: 1GB of RAM is 1024MB.")
+                    print("Default values will be used if left blank.")
+                    minRam = input("Minimun ram in MB (Example: 1024): ")
+                    maxRam = input("Maximum ram in MG (Example: 2048): ")
+                    if minRam == "":
+                        minRam = "1024"
+                    if maxRam == "":
+                        maxRam = "1024"
+                    with open(os.path.join(path, "config.yml"), "r") as f:
+                        contenido = f.read()
+                    if ("start_command: echo Hello world from MCDReforged" in contenido):
+                        with open(os.path.join(path, "config.yml"), "w") as f:
+                            nuevo_contenido = contenido.replace("start_command: echo Hello world from MCDReforged", f"start_command: run.bat")
+                            f.write(nuevo_contenido)
+                        with open(os.path.join(path + "/server", "user_jvm_args.txt"), "w") as f:
+                            f.write(f"-Xms{minRam}M -Xmx{maxRam}M")
+                    print("Server configured to use Forge server and MCDR.")
+                    print("Note: To create the server, run 'start.bat' in the server directory.")
+                    input("Press Enter to leave...")
+                    exit()
+
+                else:
+                    forge_main(path)
+                    print("Modifying start.bat to use Forge server...")
+                    print("Note: 1GB of RAM is 1024MB.")
+                    print("Default values will be used if left blank.")
+                    minRam = input("Minimun ram in MB (Example: 1024): ")
+                    maxRam = input("Maximum ram in MG (Example: 2048): ")
+                    if minRam == "":
+                        minRam = "1024"
+                    if maxRam == "":
+                        maxRam = "1024"
+                    with open(os.path.join(path, "start.bat"), "w") as f:
+                        f.write(f"run.bat")
+                    with open(os.path.join(path, "user_jvm_args.txt"), "w") as f:
+                            f.write(f"-Xms{minRam}M -Xmx{maxRam}M")
+                    print("Server configured to use Forge server.")
+                    print("Note: To create the server, run 'start.bat' in the server directory.")
+                    input("Press Enter to leave...")
+                    exit()
+
+            case '3':
+                if bool:
+                    createMCDR(path)
                     vanilla_main(path + "/server")
-                    print("Modifying MCDR config to use Fabric server...")
+                    print("Modifying MCDR config to use Vanilla server...")
                     print("Note: 1GB of RAM is 1024MB.")
                     print("Default values will be used if left blank.")
                     minRam = input("Minimun ram in MB (Example: 1024): ")
@@ -118,13 +166,13 @@ def mcdr(path, bool):
                     if maxRam == "":
                         maxRam = "1024"
                     with open(os.path.join(path, "start.bat"), "w") as f:
-                        f.write("start_command: echo Hello world from MCDReforged", f"start_command: java -Xmx{minRam}M -Xms{maxRam}M -jar server.jar nogui")
+                        f.write(f"java -Xmx{minRam}M -Xms{maxRam}M -jar server.jar nogui")
                     print("Server configured to use Vanilla server.")
                     print("Note: To create the server, run 'start.bat' in the server directory.")
                     input("Press Enter to leave...")
                     exit()
-
-            case '3':
+            
+            case '4':
                 return
             
             case _:
