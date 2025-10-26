@@ -14,7 +14,7 @@ Tool to create Minecraft Servers more easy
 [MCDReforged](https://mcdreforged.com/en) ```not needed for run the program```
 
 ### Features
-- [X] [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) ⚠️broken
+- [X] [MCDReforged](https://github.com/Fallen-Breath/MCDReforged)
 - [X] [Vanilla](https://www.minecraft.net/) 
 - [X] [Fabric](https://fabricmc.net/) 
 
