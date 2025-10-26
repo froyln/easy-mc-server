@@ -26,7 +26,7 @@ Tool to create Minecraft Servers more easy
 ## Easy Installation
 Download the exe and run
 
-[easy-mc-server.exe here](https://github.com/froyln/easy-mc-server/releases/download/1.0/easy-mc-server.exe)
+easy-mc-server.exe [here](https://github.com/froyln/easy-mc-server/releases/download/1.02/easy-mc-server.exe)
 
 ## Manual Installation
 Clone the github project
