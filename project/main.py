@@ -53,9 +53,9 @@ def check_dependencies():
         exit("Failed to determine Java version. Please ensure Java is installed correctly.")
 
     try:
-        subprocess.run("pip install subprocess", check=True)
+        subprocess.run("pip install requests", check=True)
     except:
-        print("Failed to install subprocess module.")
+        print("Failed to install requests module.")
 
 
 def clear_screen():
