@@ -18,7 +18,7 @@ Tool to create Minecraft Servers more easy
 - [X] [Vanilla](https://www.minecraft.net/) 
 - [X] [Fabric](https://fabricmc.net/) 
 
-### TODO
+### To do
 - [ ] [Carpet112](https://github.com/gnembon/carpetmod112) 
 - [ ] [Forge](https://github.com/MinecraftForge/MinecraftForge) 
 - [ ] [PaperMC](https://papermc.io/)
