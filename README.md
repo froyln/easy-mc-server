@@ -11,16 +11,16 @@ Tool to create Minecraft Servers more easy
 
 [Java](https://discordpy.readthedocs.io/en/stable/) ```versions 21+. Other versions and implementations may or may not work correctly.```
 
-[MCDReforged](https://mcdreforged.com/en) ```not needed for run the program```
+[MCDReforged](https://mcdreforged.com/en) ```it is not necessary to run the program```
 
 ### Features
 - [X] [MCDReforged](https://github.com/Fallen-Breath/MCDReforged)
 - [X] [Vanilla](https://www.minecraft.net/) 
-- [X] [Fabric](https://fabricmc.net/) 
+- [X] [Fabric](https://fabricmc.net/)
+- [X] [Forge](https://github.com/MinecraftForge/MinecraftForge) 
 
-### TODO
+### To do
 - [ ] [Carpet112](https://github.com/gnembon/carpetmod112) 
-- [ ] [Forge](https://github.com/MinecraftForge/MinecraftForge) 
 - [ ] [PaperMC](https://papermc.io/)
 
 ## Easy Installation
