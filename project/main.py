@@ -15,7 +15,7 @@ def check_dependencies():
 
     clear_screen()
     try:
-        pythonVersion = subprocess.run("python --version", check=True)
+        subprocess.run("python --version", check=True)
     except subprocess.CalledProcessError:
         print("Python is not installed. Please install Python to continue.")
         print("You can download it from https://www.python.org/downloads/")
