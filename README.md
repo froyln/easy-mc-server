@@ -16,11 +16,11 @@ Tool to create Minecraft Servers more easy
 ### Features
 - [X] [MCDReforged](https://github.com/Fallen-Breath/MCDReforged)
 - [X] [Vanilla](https://www.minecraft.net/) 
-- [X] [Fabric](https://fabricmc.net/) 
+- [X] [Fabric](https://fabricmc.net/)
+- [X] [Forge](https://github.com/MinecraftForge/MinecraftForge) 
 
 ### To do
 - [ ] [Carpet112](https://github.com/gnembon/carpetmod112) 
-- [ ] [Forge](https://github.com/MinecraftForge/MinecraftForge) 
 - [ ] [PaperMC](https://papermc.io/)
 
 ## Easy Installation
