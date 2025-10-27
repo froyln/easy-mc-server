@@ -15,7 +15,7 @@ def check_dependencies():
 
     clear_screen()
     try:
-        subprocess.run("python --version", check=True)
+        pythonVersion = subprocess.run("python --version", check=True)
     except subprocess.CalledProcessError:
         print("Python is not installed. Please install Python to continue.")
         print("You can download it from https://www.python.org/downloads/")
@@ -51,6 +51,11 @@ def check_dependencies():
         input("Press Enter to exit...")
         clear_screen()
         exit("Failed to determine Java version. Please ensure Java is installed correctly.")
+
+    try:
+        subprocess.run("pip install subprocess", check=True)
+    except:
+        print("Failed to install subprocess module.")
 
 
 def clear_screen():

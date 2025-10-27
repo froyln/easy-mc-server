@@ -14,7 +14,7 @@ def createMCDR(path):
             print("mcdreforged not found. Installing mcdreforged...")
             subprocess.run("pip install mcdreforged", check=True)
             print("mcdreforged installed successfully.")
-        except subprocess.CalledProcessError:
+        except:
             print("Failed to install mcdreforged. Please install it manually.")
             exit(1)
     try: 
@@ -59,7 +59,7 @@ def mcdr(path, bool):
                         contenido = f.read()
                     if ("start_command: echo Hello world from MCDReforged" in contenido):
                         with open(os.path.join(path, "config.yml"), "w") as f:
-                            nuevo_contenido = contenido.replace("start_command: echo Hello world from MCDReforged", f"start_command: java -Xmx{minRam}M -Xms{maxRam}M -jar fabric-server.jar nogui")
+                            nuevo_contenido = contenido.replace("start_command: echo Hello world from MCDReforged", f"start_command: java -Xms{minRam}M -Xmx{maxRam}M -jar fabric-server.jar nogui")
                             f.write(nuevo_contenido)
                     print("Server configured to use Fabric server and MCDR.")
                     print("Note: To create the server, run 'start.bat' in the server directory.")
@@ -77,7 +77,7 @@ def mcdr(path, bool):
                     if maxRam == "":
                         maxRam = "1024"
                     with open(os.path.join(path, "start.bat"), "w") as f:
-                        f.write(f"java -Xmx{minRam}M -Xms{maxRam}M -jar fabric-server.jar nogui")
+                        f.write(f"java -Xms{minRam}M -Xmx{maxRam}M -jar fabric-server.jar nogui")
                     
                     print("Server configured to use Fabric server.")
                     print("Note: To create the server, run 'start.bat' in the server directory.")
@@ -147,7 +147,7 @@ def mcdr(path, bool):
                         contenido = f.read()
                     if ("start_command: echo Hello world from MCDReforged" in contenido):
                         with open(os.path.join(path, "config.yml"), "w") as f:
-                            nuevo_contenido = contenido.replace("start_command: echo Hello world from MCDReforged", f"start_command: java -Xmx{minRam}M -Xms{maxRam}M -jar server.jar nogui")
+                            nuevo_contenido = contenido.replace("start_command: echo Hello world from MCDReforged", f"start_command: java -Xms{minRam}M -Xmx{maxRam}M -jar server.jar nogui")
                             f.write(nuevo_contenido)
                     print("Server configured to use Vanilla server and MCDR.")
                     print("Note: To create the server, run 'start.bat' in the server directory.")
@@ -166,7 +166,7 @@ def mcdr(path, bool):
                     if maxRam == "":
                         maxRam = "1024"
                     with open(os.path.join(path, "start.bat"), "w") as f:
-                        f.write(f"java -Xmx{minRam}M -Xms{maxRam}M -jar server.jar nogui")
+                        f.write(f"java -Xms{minRam}M -Xmx{maxRam}M -jar server.jar nogui")
                     print("Server configured to use Vanilla server.")
                     print("Note: To create the server, run 'start.bat' in the server directory.")
                     input("Press Enter to leave...")
