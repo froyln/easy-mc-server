@@ -11,7 +11,7 @@ Tool to create Minecraft Servers more easy
 
 [Java](https://discordpy.readthedocs.io/en/stable/) ```versions 21+. Other versions and implementations may or may not work correctly.```
 
-[MCDReforged](https://mcdreforged.com/en) ```not needed for run the program```
+[MCDReforged](https://mcdreforged.com/en) ```it is not necessary to run the program```
 
 ### Features
 - [X] [MCDReforged](https://github.com/Fallen-Breath/MCDReforged)
