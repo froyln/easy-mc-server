@@ -2,7 +2,7 @@
 
 # Easy Minecraft Server
 
-**Desktop tool to set up Minecraft servers in minutes, with a dark-themed graphical interface.**
+**Desktop tool to set up Minecraft servers.**
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![CustomTkinter](https://img.shields.io/badge/CustomTkinter-5.2%2B-ff5f6d)](https://github.com/TomSchimansky/CustomTkinter)
