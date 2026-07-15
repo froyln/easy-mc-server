@@ -2,12 +2,14 @@
 
 # Easy Minecraft Server
 
+
 **Desktop tool to set up Minecraft servers.**
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![CustomTkinter](https://img.shields.io/badge/CustomTkinter-5.2%2B-ff5f6d)](https://github.com/TomSchimansky/CustomTkinter)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+<img width="480" height="270" alt="image" src="https://github.com/user-attachments/assets/5ea5bed7-e320-4ad3-b636-3f2c8461c8ca" />
 </div>
 
 ---
