@@ -1,15 +1,14 @@
 """Ties together server type installers, MCDReforged and launch script generation."""
 from __future__ import annotations
 
+import stat
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Callable
 
 from . import launch_scripts, mcdreforged_setup
 from .server_types import get_installer
-
-LogCallback = Callable[[str], None]
-ProgressCallback = Callable[[int, int], None]
+from .system_check import is_windows
+from .types import LogCallback, ProgressCallback
 
 
 @dataclass
@@ -68,4 +67,10 @@ def _finish_forge(request: ServerRequest, server_dir: Path, log: LogCallback) ->
         mcdreforged_setup.set_start_command(request.destination, run_script, log)
         launch_scripts.write_mcdreforged_launch_scripts(request.destination)
     else:
-        launch_scripts.write_forge_launch_scripts(server_dir)
+        command = "run.bat" if is_windows() else "run.sh"
+        bat_path = server_dir / "start.bat"
+        bat_path.write_text(f"{command}\r\npause\r\n", encoding="utf-8")
+        sh_path = server_dir / "start.sh"
+        sh_path.write_text(f"#!/bin/sh\n{command}\n", encoding="utf-8")
+        if not is_windows():
+            sh_path.chmod(sh_path.stat().st_mode | stat.S_IEXEC | stat.S_IXGRP | stat.S_IXOTH)

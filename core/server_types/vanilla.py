@@ -4,7 +4,8 @@ from __future__ import annotations
 from pathlib import Path
 
 from ..downloader import download_file, get_json
-from .base import BaseServerInstaller, InstallResult, LogCallback, ProgressCallback
+from ..types import LogCallback, ProgressCallback
+from .base import BaseServerInstaller, InstallResult
 
 VERSION_MANIFEST_URL = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
 

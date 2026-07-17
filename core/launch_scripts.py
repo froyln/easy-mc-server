@@ -20,11 +20,6 @@ def write_mcdreforged_launch_scripts(path: Path) -> Path:
     return _write_scripts(path, "python -m mcdreforged")
 
 
-def write_forge_launch_scripts(path: Path) -> Path:
-    script_name = "run.bat" if is_windows() else "run.sh"
-    return _write_scripts(path, script_name)
-
-
 def _write_scripts(path: Path, command: str) -> Path:
     bat_path = path / "start.bat"
     bat_path.write_text(f"{command}\r\npause\r\n", encoding="utf-8")

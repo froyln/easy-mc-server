@@ -5,9 +5,8 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
-from typing import Callable
 
-LogCallback = Callable[[str], None]
+from .types import LogCallback
 
 MCDR_PLACEHOLDER = "start_command: echo Hello world from MCDReforged"
 

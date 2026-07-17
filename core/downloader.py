@@ -2,11 +2,10 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Callable, Optional
 
 import requests
 
-ProgressCallback = Optional[Callable[[int, int], None]]
+from .types import ProgressCallback
 
 USER_AGENT = "easy-mc-server/2.0"
 DEFAULT_HEADERS = {"User-Agent": USER_AGENT}

@@ -12,8 +12,6 @@ from dataclasses import dataclass
 class JavaStatus:
     installed: bool
     version: int | None
-    raw_output: str
-    path: str | None
 
 
 def find_java_executable() -> str | None:
@@ -23,7 +21,7 @@ def find_java_executable() -> str | None:
 def check_java(min_version: int = 21) -> JavaStatus:
     java_path = find_java_executable()
     if java_path is None:
-        return JavaStatus(installed=False, version=None, raw_output="", path=None)
+        return JavaStatus(installed=False, version=None)
 
     try:
         result = subprocess.run(
@@ -33,11 +31,11 @@ def check_java(min_version: int = 21) -> JavaStatus:
             timeout=10,
         )
         raw_output = (result.stdout or "") + (result.stderr or "")
-    except (subprocess.SubprocessError, OSError) as exc:
-        return JavaStatus(installed=False, version=None, raw_output=str(exc), path=java_path)
+    except (subprocess.SubprocessError, OSError):
+        return JavaStatus(installed=False, version=None)
 
     version = _parse_java_major_version(raw_output)
-    return JavaStatus(installed=True, version=version, raw_output=raw_output, path=java_path)
+    return JavaStatus(installed=True, version=version)
 
 
 def _parse_java_major_version(raw_output: str) -> int | None:
@@ -56,7 +54,3 @@ def is_windows() -> bool:
 
 def is_macos() -> bool:
     return platform.system() == "Darwin"
-
-
-def is_linux() -> bool:
-    return platform.system() == "Linux"

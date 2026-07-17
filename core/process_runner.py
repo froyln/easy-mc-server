@@ -3,9 +3,8 @@ from __future__ import annotations
 
 import subprocess
 from pathlib import Path
-from typing import Callable
 
-LogCallback = Callable[[str], None]
+from .types import LogCallback
 
 
 class ProcessError(RuntimeError):

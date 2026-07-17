@@ -60,6 +60,10 @@ class WizardPage(ctk.CTkFrame):
         self.content_frame.grid(row=2, column=0, sticky="nsew", padx=32, pady=(4, 4))
         self.content_frame.grid_columnconfigure(0, weight=1)
 
+        self._error_label = ctk.CTkLabel(
+            self.content_frame, text="", font=theme.body_font(12), text_color=theme.ERROR
+        )
+
         self._render_step()
 
     def reset(self) -> None:
@@ -96,7 +100,9 @@ class WizardPage(ctk.CTkFrame):
 
     def _clear_content(self) -> None:
         for widget in self.content_frame.winfo_children():
-            widget.destroy()
+            if widget is not self._error_label:
+                widget.destroy()
+        self._error_label.configure(text="")
 
     def _render_step(self) -> None:
         self.step_indicator.set_active(self._current_step)
@@ -143,10 +149,8 @@ class WizardPage(ctk.CTkFrame):
         return True
 
     def _show_error(self, message: str) -> None:
-        error_label = ctk.CTkLabel(
-            self.content_frame, text=message, font=theme.body_font(12), text_color=theme.ERROR
-        )
-        error_label.grid(row=99, column=0, sticky="w", pady=(12, 0))
+        self._error_label.configure(text=message)
+        self._error_label.grid(row=99, column=0, sticky="w", pady=(12, 0))
 
     # --- Step 0: basics -------------------------------------------------
 

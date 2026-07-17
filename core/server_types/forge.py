@@ -6,7 +6,8 @@ from pathlib import Path
 from ..downloader import download_file, get_json
 from ..process_runner import run_streaming
 from ..system_check import find_java_executable
-from .base import BaseServerInstaller, InstallResult, LogCallback, ProgressCallback
+from ..types import LogCallback, ProgressCallback
+from .base import BaseServerInstaller, InstallResult
 
 PROMOTIONS_URL = "https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json"
 

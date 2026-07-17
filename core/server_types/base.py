@@ -2,19 +2,16 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Callable
 
-LogCallback = Callable[[str], None]
-ProgressCallback = Callable[[int, int], None]
+from ..types import LogCallback, ProgressCallback
 
 
 @dataclass
 class InstallResult:
     """Outcome of a server installation, used to build the launch command."""
     jar_name: str
-    launch_args: list[str] = field(default_factory=list)
     notes: str = ""
 
 
